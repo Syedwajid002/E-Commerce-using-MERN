@@ -17,9 +17,10 @@ function Login() {
     const submited = (e) => {
         e.preventDefault();
         axios.post("http://localhost:5000/login", data,{withCredentials:true})
-            .then((result) => {
+            .then(result=> {
                 console.log("Login successful:", result);
-                const uname=result.data.name;
+                localStorage.setItem("username",result.data.username)
+                localStorage.setItem("isLoggedIn",true)
                 navigate("/");
             })
             .catch((err) => {

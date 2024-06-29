@@ -1,12 +1,26 @@
 
-import React, {useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import cartImage from "../../Images/shopping-cart.png"
-import axios from 'axios'
+import axios from 'axios';
 
-function Navbar({auth,name}) {
+function Navbar() {
   const navigate = useNavigate();
   const [searchdata, setsearchdata] = useState("");
+  const [auth, setAuth] = useState(false);
+  const [name, setName] = useState('');
+
+  useEffect(() => {
+    const getstatus = localStorage.getItem("isLoggedIn");
+    if (getstatus === 'true') {
+      setAuth(true);
+      const getname = localStorage.getItem("username");
+      setName(getname);
+    } else {
+      setAuth(false);
+    }
+  }, []);
+  
   const handleonchange = (e) => {
     setsearchdata(e.target.value);
   };
@@ -17,14 +31,21 @@ function Navbar({auth,name}) {
     navigate(`/searched/${searchdata}`);
 };
 
-const Logout=()=>{
-  axios.post("http://localhost:5000/logout")
-  .then(res=>{
-  console.log(res.data)
-  })
-  .catch(err=>{
-    console.log("error auth k jaga nav")
-  })
+const Logout=async()=>{
+  await axios.post("http://localhost:5000/logout")
+  localStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("username");
+  setAuth(false);
+      setName('');
+      navigate('/');
+
+  // axios.post("http://localhost:5000/logout")
+  // .then(res=>{
+  // console.log(res.data)
+  // })
+  // .catch(err=>{
+  //   console.log("error auth k jaga nav")
+  // })
 }
   return (
     <div>

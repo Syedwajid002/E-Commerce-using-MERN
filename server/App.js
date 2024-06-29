@@ -106,14 +106,13 @@ app.post("/login", async (req, res) => {
     }
 
     let token1 = jwt.sign({ name: user.name }, "hfjksdhfkhsdkfhksdfh");
-    // const { username } = req.body;
-    // req.session.user = { name: username };
     res.status(201).cookie("token", token1, {
       httpOnly: true,
       maxAge: 1 * 60 * 1000,
     }).json({
       success: true,
-      message: "User LoggedIn",
+      message:"Login Successfull",
+      username:user.name
     });
 
   }
@@ -148,6 +147,7 @@ app.get('/', verifyuser, async (req, res) => {
 })
 
 app.post('/logout', async (req, res) => {
+  console.log("logout")
   res.clearCookie('token');
   return res.json({ message: 'Logout successful' });
 });
