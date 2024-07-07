@@ -9,7 +9,6 @@ function Home() {
   const [auth, setAuth] = useState(false);
   const [name, setName] = useState('');
 
-  // axios.defaults.withCredentials = true;
 
   useEffect(() => {
       const getstatus= localStorage.getItem("isLoggedIn");

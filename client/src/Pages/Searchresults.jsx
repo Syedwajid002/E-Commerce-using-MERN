@@ -47,14 +47,14 @@ const Searchresults = () => {
   </div>
       <h2><u>Searched Products</u></h2>
       <div className="wrapper">
-        {results.map(item => (
+        {results.length>0 ? results.map(item => (
           <div className="Item" key={item.id} onClick={()=>{productclick(item)}}>
             <img src={item.image} alt={item.title} />
             <h4>{item.title}</h4>
             <p>{item.description.length>20 ? item.description.substring(4,50) + "...":item.description}</p>
             <p><strong>Price:</strong> ${item.price}</p>
           </div>
-        ))}
+        )): <h2>No products Found </h2>}
       </div>
     </>
   );
