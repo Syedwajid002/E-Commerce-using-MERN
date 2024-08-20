@@ -21,7 +21,6 @@ const BoxesScroll = React.forwardRef((props, ref) => {
   }, []);
 
   const productclick = (item) => {
-
     navigate(`/productdetails/${item.id}`)
   }
   return (

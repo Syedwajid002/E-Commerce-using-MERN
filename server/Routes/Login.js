@@ -32,14 +32,16 @@ const Login= async (req, res) => {
         });
       }
       
-      let token = jwt.sign({ id: user._id}, "hfjksdhfkhsdkfhksdfh");
-      res.status(201).cookie("token", token, {
-        httpOnly: true,
-        maxAge: 60 * 60 * 1000,
+      let token = jwt.sign({ id: user._id}, "hfjksdhfkhsdkfhksdfh",{expiresIn:"1h"});
+      res.cookie("token", token, {
+          httpOnly: true,
+          secure: false,
+          sameSite: "strict"
       }).json({
         success: true,
         message:"Login Successfull",
-        username:user.name
+        username:user.name,
+        userId:user._id
       });
   
     }

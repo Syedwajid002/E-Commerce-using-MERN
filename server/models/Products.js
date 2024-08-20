@@ -5,7 +5,7 @@ const mongoose=require('mongoose');
 const ProductsSchema=mongoose.Schema({
     id:Number,
     title:String,
-    Price:Number,
+    price:Number,
     description:String,
     category:String,
     image:String,

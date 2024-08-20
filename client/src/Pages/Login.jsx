@@ -21,6 +21,7 @@ function Login() {
                 console.log("Login successful:", result);
                 localStorage.setItem("username",result.data.username)
                 localStorage.setItem("isLoggedIn",true)
+                localStorage.setItem("id",result.data.userId)
                 navigate("/");
             })
             .catch((err) => {

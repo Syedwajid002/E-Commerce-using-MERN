@@ -9,11 +9,14 @@ function Navbar() {
   const [searchdata, setsearchdata] = useState("");
   const [auth, setAuth] = useState(false);
   const [name, setName] = useState('');
+  const [id,setId]=useState("");
 
   useEffect(() => {
     const getstatus = localStorage.getItem("isLoggedIn");
     if (getstatus === 'true') {
       setAuth(true);
+      const getid=localStorage.getItem("id");
+      setId(getid)
       const getname = localStorage.getItem("username");
       setName(getname);
     } else {
@@ -32,9 +35,11 @@ function Navbar() {
 };
 
 const Logout=async()=>{
+  console.log("from frontend Logout");
   await axios.post("http://localhost:5000/logout")
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("username");
+  localStorage.removeItem("id")
   setAuth(false);
       setName('');
       navigate('/');
@@ -49,7 +54,7 @@ const Logout=async()=>{
 }
   return (
     <div>
-      <nav className="navbar navbar-expand-lg text-black bg-#f4f4f4 p-0 ">
+      <nav className="navbar navbar-expand-lg text-black bg-#f4f4f4 p-0">
         <div className="container-fluid">
           <a className="navbar-brand text-black " href="/"><strong>MY-STORE</strong></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,23 +77,25 @@ const Logout=async()=>{
             </ul>
           </div>
         </div>
-            <div>
-            <Link to="/mycart"><img className='w-10 h-12 object-contain' src={cartImage} alt="" /></Link>
+            <div onClick={()=>{
+              navigate(`/Mycart/${id}`)
+            }}>
+            <img className='w-10 h-12 object-contain' src={cartImage} alt="" />
             </div>
         <div className="container-fluid">
           <form className="d-flex w-50" role="search" onSubmit={handlesubmit}>
             <input className="form-control me-2" type="search" placeholder="Search For Items" aria-label="Search" name='searchbar' onChange={handleonchange} />
-            <button className="btn btn-outline-success" type="submit">Search</button>
-          </form>
+            <button className="bg-slate-500 text-white rounded-md p-1.5 " type="submit">Search</button>
+          </form> 
 
       {auth ? (
         <div className='d-flex'>
           <p className='p-2'> {name}!</p>
-          <button className='btn btn-secondary' onClick={Logout}>Logout</button>
+          <button className='bg-slate-800 text-white rounded-lg p-1' onClick={Logout}>Logout</button>
         </div>
       ) : (
         <div>
-          <Link to='/Signup'> <button className='btn btn-light'>Sign Up</button></Link>
+          <Link to='/Signup'> <button className='btn btn-light m-1 '>Sign Up</button></Link>
           <Link to='/login'><button className='btn btn-primary'>Login</button></Link>
         </div>
       )}

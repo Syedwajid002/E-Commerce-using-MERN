@@ -38,7 +38,8 @@ h4{
 }
 .wrapper .Item:hover{
     
-    transform: scale(1.05);
+    transform: scale(1.10);
+    background-color: rgb(255, 252, 250);
 }
 .wrapper:hover{
     cursor: grab;

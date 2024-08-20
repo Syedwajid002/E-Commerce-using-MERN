@@ -1,0 +1,4 @@
+=>usign middleware fncs for authentication whenever needed..
+in simple words=> middleware=initial checks
+=>when i write app.use(bla bla ) this middleware wil be used/applied in every route
+for eg: if i want to check for auth on every route i can say app.use(auth fnc);

@@ -21,9 +21,8 @@ function App() {
         <Route path='/productdetails/:id' element={<Productdetails/>}/>
         <Route path='/Searched/:query' element={<Searchresults />} />
         <Route path='/AllProducts' element={<BoxesScroll/>}/>
-        <Route path='/Mycart' element={<Cart/>}/>̥
+        <Route path='/Mycart/:id' element={<Cart/>}/>̥
         <Route path='/Checkout' element={<Checkout/>}/>
-
       </Routes>
     </div>
   );

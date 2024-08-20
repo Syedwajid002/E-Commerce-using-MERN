@@ -5,7 +5,7 @@ const app = express();
 
 const SearchedQuery= async (req, res) => {
     const { query } = req.body;
-    console.log(query + "fhksjfk")
+    // console.log(query + "fhksjfk")
     if (!query) {
       return res.status(400).json({ error: 'Query parameter is required' });
     }

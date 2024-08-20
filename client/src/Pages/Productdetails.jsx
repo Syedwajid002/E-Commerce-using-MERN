@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Navbar from '../Components/JavaScript/Navbar';
 
 const Productdetails = () => {
   const navigate=useNavigate();
@@ -21,36 +21,50 @@ const Productdetails = () => {
       .then(response => {
         setdata(response.data.result);
       })
-  }, []);
+  }, [id]);
   if (!data) {
     return (<h2>No Product details Found</h2>)
   }
 
   
   const AddToCart = () => {
-    if(!localStorage.getItem("isLoggedIn")){
-      alert("please login first")
-      navigate("/login")
-    }
-    else{
-    const id=data.id;
-    
-    axios.post('http://localhost:5000/addtocart', {id})
+    console.log("add to cart fnc call");
+    if (!localStorage.getItem("isLoggedIn")) {
+      alert("please login first");
+      navigate("/login");
+    } else {
+      const productId = data.id;
+      const userId = localStorage.getItem("id");
+      console.log(userId)
+     axios.post('http://localhost:5000/addtocart', { productId, userId })
       .then(response => {
         console.log("products se cart me chalegaya");
-        navigate('/mycart');
+        console.log(response.data)
+        navigate(`/Mycart/${userId}`);
       })
       .catch(error => {
         console.error("There was an error adding the item to the cart:", error);
       });
   }}
-
+  const BuyNow=()=>{
+    if(!localStorage.getItem("isLoggedIn")){
+      alert("please login first")
+      navigate("/login")
+      }
+      else{
+        const id=data.id;
+        axios.post('http://localhost:5000/buynow', {id})
+        .then(response => {
+          console.log("products se cart me chalegaya");
+      })}
+  }
 
   return (
     <>
+    <Navbar/>
       <div className="mx-auto max-w-7xl px-4 md:px-8 2xl:px-16">
         <div className="pt-8">
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <ol className="flex w-full items-center overflow-hidden">
               <li className="text-body hover:text-heading px-2.5 text-sm transition duration-200 ease-in first:pl-0 last:pr-0">
                 <Link to='/'>Home</Link>
@@ -60,7 +74,7 @@ const Productdetails = () => {
                 <Link to='/AllProducts'>Products</Link>
               </li>
             </ol>
-          </div>
+          </div> */}
         </div>
         <div className="block grid-cols-9 items-start gap-x-10 pb-10 pt-7 lg:grid lg:pb-14 xl:gap-x-14 2xl:pb-20">
           <div className="col-span-2 grid grid-cols-1 gap-2.5 ">
@@ -123,15 +137,21 @@ const Productdetails = () => {
                 onClick={AddToCart} >
                 Add to cart
               </button>
+              <button
+                type="button"
+                className="h-11 w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                onClick={BuyNow} >
+                Buy Now
+              </button>
             </div>
             <h4>Total: {NumberOfProducts * data.price}</h4>
             <div className="">
-              <header className="flex cursor-pointer items-center justify-between border-t border-gray-300 py-5 transition-colors md:py-6">
+              <footer className="flex cursor-pointer items-center justify-between border-t border-gray-300 py-5 transition-colors md:py-6">
                 <h2 className="text-heading pr-2 text-sm font-semibold leading-relaxed md:text-base lg:text-lg">
                   Customer Reviews
                 </h2>
-                <p> Rating :</p>
-              </header>
+                <p> Rating :4.2 ⭐</p>
+              </footer>
             </div>
           </div>
         </div>

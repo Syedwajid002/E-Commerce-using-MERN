@@ -17,7 +17,7 @@ function Body() {
             <h1 className='text-bold text-3xl'>Raining Offers For</h1>
             <h1 className='text-bold text-3xl'> Hot summer</h1>
             <h3 className='text-bold text-3xl'>Great Deals upto 50% OFF</h3>
-        <button onClick={scrollToComponent}>Shop Now</button>
+        <button onClick={scrollToComponent} className='bg-slate-300 hover:bg-gray-200'>Shop Now</button>
         </div>
         </div>
         <BoxesScroll ref={targetRef} />

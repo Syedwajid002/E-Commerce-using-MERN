@@ -28,62 +28,54 @@ app.get('/getProducts', async (req, res) => {
   res.json(result);
 });
 
-app.get('/getCart', async (req, res) => {
-
-  const result = await Products.find();
+app.get('/getCart/:userId',async (req, res) => {
+    const {userId}=req.params;
+    // console.log("User Id aagayi :"+userId);
+  const result = await MyCart.findOne({userId});
+//   console.log(result);
   res.json(result);
 });
 
 
 
 app.post('/addtocart', async (req, res) => {
-  const { productId } = req.body;
-  const tok = req.cookies.token;
-  console.log(tok)
-  if (!tok) return res.status(401).json({ error: 'Access denied' });
-  try {
-      const decoded = jwt.verify(tok, "hfjksdhfkhsdkfhksdfh");
-      req.user = decoded;
-  } catch (err) {
-      res.status(400).json({ error: 'Invalid token' });
-  }
-
-  const userId = req.user.id; // Extracted from the token
-
-  try {
+    console.log("from backend add to cart");
+    const { productId, userId } = req.body;
+    // console.log(userId);
+    // console.log(productId);
+    try {
       const product = await Products.findOne({ id: productId });
       if (product) {
-          let cart = await MyCart.findOne({ userId });
+        console.log(product.price);
+        let cart = await MyCart.findOne({ userId: userId });
           if (!cart) {
-              // Create a new cart if none exists
-              cart = new MyCart({
-                  userId,
-                  items: [{
-                      productId: product.id,
-                      productTitle: product.title,
-                      productImage: product.image,
-                      productPrice: product.price
-                  }]
-              });
-          } else {
-              // Add item to existing cart
-              cart.items.push({
-                  productId: product.id,
-                  productTitle: product.title,
-                  productImage: product.image,
-                  productPrice: product.price
-              });
-          }
-          await cart.save();
-          res.json(cart);
+            cart = new MyCart({
+                userId: userId,
+                items: [{
+                    productId: product.id,
+                    productTitle: product.title,
+                    productImage: product.image,
+                    productPrice: product.price
+                }]
+            });
+        } else {
+            cart.items.push({
+                productId: product.id,
+                productTitle: product.title,
+                productImage: product.image,
+                productPrice: product.price
+            });
+        }
+        await cart.save();
+        res.json(cart);
       } else {
-          res.status(404).json({ error: "Product not found" });
+        res.status(404).json({ error: "Product not found" });
       }
-  } catch (err) {
+    } catch (err) {
       console.error("Error occurred while fetching product: ", err);
       res.status(500).json({ error: "Internal server error" });
-  }
-});
+    }
+  });
 
 app.get('/ProductsDetails/:id',ProductDetails);
 
@@ -99,6 +91,14 @@ app.post("/login", Login)
 
 
 app.post('/logout', Logout);
+
+app.post('/buynow',  (req, res) => {
+    const { id } = req.body;
+    console.log(id);
+    res.status(201).json({
+        message: "Product added to buylist"
+    })
+})
 
 
 // const verifyuser = (req, res, next) => {
@@ -127,3 +127,6 @@ app.post('/logout', Logout);
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
+
+//i should be using middle wares to authenticate user when ever needede learn form harkirath week 3.1 middle ware lectures
