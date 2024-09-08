@@ -25,12 +25,15 @@ const BoxesScroll = React.forwardRef((props, ref) => {
   }
   return (
     <>
+
     <div className="wrapper" ref={ref}>
        {data.map(item => (
-        <div className="Item" key={item.id} onClick={() => productclick(item)}>
+           <div data-aos="zoom-in-down">
+         <div className="Item" key={item.id} onClick={() => productclick(item)}>
           <img src={item.image} alt={item.title} />
           <h4>{item.title}</h4>
         </div>
+      </div>
       ))}
     </div>
     </>

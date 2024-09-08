@@ -80,15 +80,26 @@ const Productdetails = () => {
           <div className="col-span-2 grid grid-cols-1 gap-2.5 ">
 
             <div className="transition duration-150 ease-in hover:opacity-90 ">
+            <div data-aos="">
+            <div data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000">
+
               <img
                 src={data.image}
                 alt="Nike Air Max 95 By You--0"
                 className="w-full object-contain h-100"
               />
+              </div>
+              </div>
             </div>
           </div>
           <div className="col-span-4 pt-8 lg:pt-0">
             <div className="mb-7 border-b border-gray-300 pb-7">
+
+<div data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500">
               <h2 className="text-heading mb-3.5 text-lg font-bold md:text-xl lg:text-2xl 2xl:text-3xl">
                 {data.title}
               </h2>
@@ -102,6 +113,7 @@ const Productdetails = () => {
                 <span className="font-segoe pl-2 text-sm text-gray-400 line-through md:text-base lg:text-lg xl:text-xl">
                  ${data.price + 100}
                 </span>
+              </div>
               </div>
             </div>
             <div className="py-2 ">

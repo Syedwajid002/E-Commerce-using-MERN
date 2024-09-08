@@ -21,7 +21,7 @@ const Checkout = () => {
       axios
         .get(`http://localhost:5000/getCart/${userId}`)
         .then(response => {
-          console.log('Response has come');
+          // console.log('Response has come');
           const items = response.data.items;
           setCart(items);
           console.log(items);

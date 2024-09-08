@@ -45,6 +45,8 @@ const Cart = () => {
         <ul className="flex flex-col divide-y divide-gray-200">
           {cart.length > 0 ? (
             cart.map(item => (
+              <div data-aos="fade-up"
+     data-aos-duration="1000">
               <li
                 key={item._id}
                 className="flex flex-col py-6 m-2 sm:flex-row sm:justify-between bg-white px-3 rounded-2xl shadow-lg"
@@ -115,6 +117,8 @@ const Cart = () => {
                   </div>
                 </div>
               </li>
+              
+</div>
             ))
           ) : (
             <p>No item in cart</p>

@@ -41,12 +41,17 @@ const navigate=useNavigate();
     <h2><u>Searched Products</u></h2>
       <div className="wrapper">
         {data && data.map(item => (
+          <div data-aos="fade-out"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="500">
           <div className="Item" key={item.id} onClick={()=>{productclick(item)}}>
             <img src={item.image} alt={item.title} />
             <h4>{item.title}</h4>
             <p>{item.description.length>20 ? item.description.substring(4,50) + "...":item.description}</p>
             <p><strong>Price:</strong> ${item.price}</p>
           </div>
+          </div>
+
         ))}
       </div>
     </>

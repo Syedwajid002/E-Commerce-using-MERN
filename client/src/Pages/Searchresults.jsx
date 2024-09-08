@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import './../Components/Styles/BoxesScroll.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Navbar from '../Components/JavaScript/Navbar';
 
 const Searchresults = () => {
   const { query } = useParams();
@@ -32,6 +33,7 @@ const Searchresults = () => {
 
   return (
     <>
+    <Navbar/>
     <div className="pt-8">
     <div className="flex items-center">
       <ol className="flex w-full items-center overflow-hidden">
@@ -48,11 +50,16 @@ const Searchresults = () => {
       <h2><u>Searched Products</u></h2>
       <div className="wrapper">
         {results.length>0 ? results.map(item => (
+          
+<div data-aos="fade-up"
+     data-aos-duration="3000">
+
           <div className="Item" key={item.id} onClick={()=>{productclick(item)}}>
             <img src={item.image} alt={item.title} />
             <h4>{item.title}</h4>
             <p>{item.description.length>20 ? item.description.substring(4,50) + "...":item.description}</p>
             <p><strong>Price:</strong> ${item.price}</p>
+          </div>
           </div>
         )): <h2>No products Found </h2>}
       </div>
