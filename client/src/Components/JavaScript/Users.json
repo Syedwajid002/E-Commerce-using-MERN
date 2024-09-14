@@ -1,0 +1,99 @@
+[{
+  "_id": {
+    "$oid": "668450c37fa105791eebe0f9"
+  },
+  "name": "vishwas",
+  "Email": "vishwas@gmail.com",
+  "Password": "$2b$10$fNE7aiYfqq0kAs9Tqde/suES0CHv.OtB6fBUHibOQuIr24bmNO7Lm",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66845151a14681ded1f244df"
+  },
+  "name": "wajid",
+  "Email": "hhh@gmail.com",
+  "Password": "$2b$10$arTq89Z1iuHR9O2LLGxKN.LTfF6IP7hEcDTFCROZ/JZJnDxZ0R6FK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668a573be0b1cc54bbc01052"
+  },
+  "name": "american",
+  "Email": "Wajidsyed@gmail.com",
+  "Password": "$2b$10$nj2C.YOMsSky6J2UDDStY.SOMBQZq/IZfbtowpO/.dNEft/p4sMLy",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668a67956657a0707fcf83d9"
+  },
+  "name": "Ali",
+  "Email": "Ali@gmail.com",
+  "Password": "$2b$10$KZQO7VAOsYWT/uIuW9fKvOOBZMtXLScXBmrDSsEFKEutf1uCVkuQC",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6692d50bd53c4c5b45bec0b2"
+  },
+  "name": "virat",
+  "Email": "virat@gmail.com",
+  "Password": "$2b$10$DEKs2LMG42HmtgV.iERIw.TFLa3pEewg2MWLQhqGY.O1J5X/PwzUK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669aebf10d4b2c962d8afc02"
+  },
+  "name": "wajid",
+  "Email": "Wajid1@gmail.com",
+  "Password": "$2b$10$qwy5lJUsWKUuIySve75jGODIl5jOkQOc9MuYfTntjiEpWD4IGp.j2",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669d514f9d4183611afdefe7"
+  },
+  "name": "Manish",
+  "Email": "Manish@gmail.com",
+  "Password": "$2b$10$mevyyehqUwyJjGK2DA.vCO0KiImTmb1vw.m6J9dylIduO1id4va/2",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669d5d56e0011d316e8f83b3"
+  },
+  "name": "Wajid Bhai",
+  "Email": "Wajid2@gmail.com",
+  "Password": "$2b$10$VQJbBB4HGdxExnPyfbSz0OVBVzT5MeJileKzlpj7xI3HvYfF9H9Si",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae8516b71f7386faa4e0a9"
+  },
+  "name": "Syed Wajid sahab",
+  "Email": "ajid12@gmail.com",
+  "Password": "$2b$10$MsLev3O70sk9yuIArUkWOOZGGf6lMqlPPvLo8a3rt7rP4upRA8mRe",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b741eea238248855ffe668"
+  },
+  "name": "Syed Chand Pasha",
+  "Email": "b22it@gmail.com",
+  "Password": "$2b$10$fawAWRDnzfO3pMV0Xv8xlOBBYr7hwPu.5LTp6mc49QpOuk/qnheTq",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66cd760f6801158cece94d28"
+  },
+  "name": "Saad",
+  "Email": "saad@gmail.com",
+  "Password": "$2b$10$LW4G4oBTtWffHJwZkjt9yeb6i/OPzMcDk6JvyH.aHF0mzHiGCZy4y",
+  "__v": 0
+}]
