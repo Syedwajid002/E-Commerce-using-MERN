@@ -27,6 +27,10 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get("/",(req,res)=>{
+  res.send("hey bro from backend");
+}
+
 app.get('/getProducts', async (req, res) => {
   const result = await Products.find();
   res.json(result);
