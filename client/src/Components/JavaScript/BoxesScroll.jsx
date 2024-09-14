@@ -10,6 +10,7 @@ const BoxesScroll = React.forwardRef((props, ref) => {
     axios.get('http://localhost:5000/getProducts')
       .then(response => {
         setData(response.data)
+        console.log(response.data)
       })
       .catch(error => {
         console.error('Error aaya kab: fetching data:', error);
@@ -29,7 +30,7 @@ const BoxesScroll = React.forwardRef((props, ref) => {
     <div className="wrapper" ref={ref}>
        {data.map(item => (
            <div data-aos="zoom-in-down">
-         <div className="Item" key={item.id} onClick={() => productclick(item)}>
+         <div className="Item border-l-2 border-black rounded-lg" key={item.id} onClick={() => productclick(item)}>
           <img src={item.image} alt={item.title} />
           <h4>{item.title}</h4>
         </div>

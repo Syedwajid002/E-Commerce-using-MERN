@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
 import './../Components/Styles/BoxesScroll.css'
 import { Link } from 'react-router-dom';
+import Navbar from '../Components/JavaScript/Navbar';
 const Category = () => {
 
 const {Category}=useParams();
@@ -25,20 +26,8 @@ const navigate=useNavigate();
 
   return (
     <>
-    <div class="pt-8">
-    <div class="flex items-center">
-      <ol class="flex w-full items-center overflow-hidden">
-        <li class="text-body hover:text-heading px-2.5 text-sm transition duration-200 ease-in first:pl-0 last:pr-0">
-          <Link to='/'>Home</Link>
-        </li>
-        <li class="text-body mt-0.5 text-base">/</li>
-        <li class="text-body hover:text-heading px-2.5 text-sm transition duration-200 ease-in first:pl-0 last:pr-0">
-        <Link to='/AllProducts'>Products</Link>
-        </li>
-      </ol>
-    </div>
-  </div>
-    <h2><u>Searched Products</u></h2>
+    <Navbar/>
+    <h2 className='flex items-center place-content-center text-2xl font-bold'><u>Searched Products</u></h2>
       <div className="wrapper">
         {data && data.map(item => (
           <div data-aos="fade-out"

@@ -54,24 +54,24 @@ const Logout=async()=>{
 }
   return (
     <div>
-      <nav className="navbar navbar-expand-lg text-black bg-#f4f4f4 p-0">
+      <nav className="navbar navbar-expand-lg text-black  p-0">
         <div className="container-fluid">
-          <a className="navbar-brand text-black " href="/"><strong>MY-STORE</strong></a>
+          <a className="navbar-brand text-black ml-16 mt-2" data-aos="zoom-out" href="/"><strong>Any-Buy</strong></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="p-2 text-center">
+              <li className="pr-2 pl-2 text-center hover:border-b-2 hover:border-black">
                 <Link to='/Products/men' >Mens</Link>
               </li>
-              <li className="p-2 text-center">
+              <li className="pr-2 pl-2 text-center hover:border-b-2 hover:border-black">
                 <Link to='/Products/women'>Womens</Link>
               </li>
-              <li className="p-2 text-center">
+              <li className="pr-2 pl-2 text-center hover:border-b-2 hover:border-black">
                 <Link to='/Products/electronics'>Electronics</Link>
               </li>
-              <li className="p-2 text-center">
+              <li className="pr-2 pl-2 text-center hover:border-b-2 hover:border-black">
                 <Link to='/Products/jewelery'>Jewelary</Link>
               </li>
             </ul>
@@ -80,7 +80,7 @@ const Logout=async()=>{
             <div onClick={()=>{
               navigate(`/Mycart/${id}`)
             }}>
-            <img className='w-10 h-12 object-contain' src={cartImage} alt="" />
+            <img className='w-12 h-12 object-contain hover:border-b-2 hover:border-black' src={cartImage} alt="" />
             </div>
         <div className="container-fluid">
           <form className="d-flex w-50" role="search" onSubmit={handlesubmit}>
@@ -91,7 +91,7 @@ const Logout=async()=>{
       {auth ? (
         <div className='d-flex'>
           <p className='p-2'> {name}!</p>
-          <button className='bg-slate-800 text-white rounded-lg p-1' onClick={Logout}>Logout</button>
+          <button className='bg-slate-800 text-white rounded-lg p-2' onClick={Logout}>Logout</button>
         </div>
       ) : (
         <div>
