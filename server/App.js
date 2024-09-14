@@ -20,7 +20,7 @@ const app = express();
 const port = 5000;
 
 app.use(cors({
-  origin: "https://e-commerce-using-mern-livid.vercel.app/",
+  origin: "https://e-commerce-using-mern-livid.vercel.app",
   credentials: true
 }));
 app.use(cookieParser());
