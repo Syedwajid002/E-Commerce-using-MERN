@@ -17,7 +17,7 @@ const Cart = () => {
       const userId = localStorage.getItem('id');
       console.log(userId);
       axios
-        .get(`https://e-commerce-using-mern-tv4q.vercel.app/getCart/${userId}`)
+        .get(`https://e-commerce-using-mern-ten.vercel.app/getCart/${userId}`)
         .then(response => {
           console.log('Response has come');
           const items = response.data.items;

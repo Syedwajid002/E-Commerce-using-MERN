@@ -11,7 +11,7 @@ const [data,setData]=useState();
 const navigate=useNavigate();
 
     useEffect(()=>{
-        axios.post("https://e-commerce-using-mern-tv4q.vercel.app/SearchResults",{query:Category})
+        axios.post("https://e-commerce-using-mern-ten.vercel.app/SearchResults",{query:Category})
         .then(response=>{
             console.log(response.data.result);
                 setData(response.data.result);

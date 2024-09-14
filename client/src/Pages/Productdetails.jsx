@@ -17,7 +17,7 @@ const Productdetails = () => {
   }
   const { id } = useParams();
   useEffect(() => {
-    axios.get(`https://e-commerce-using-mern-tv4q.vercel.app/ProductsDetails/${id}`)
+    axios.get(`https://e-commerce-using-mern-ten.vercel.app/ProductsDetails/${id}`)
       .then(response => {
         setdata(response.data.result);
       })
@@ -36,7 +36,7 @@ const Productdetails = () => {
       const productId = data.id;
       const userId = localStorage.getItem("id");
       console.log(userId)
-     axios.post('https://e-commerce-using-mern-tv4q.vercel.app/addtocart', { productId, userId })
+     axios.post('https://e-commerce-using-mern-ten.vercel.app/addtocart', { productId, userId })
       .then(response => {
         console.log("products se cart me chalegaya");
         console.log(response.data)
@@ -53,7 +53,7 @@ const Productdetails = () => {
       }
       else{
         const id=data.id;
-        axios.post('hhttps://e-commerce-using-mern-tv4q.vercel.app/buynow', {id})
+        axios.post('https://e-commerce-using-mern-ten.vercel.app/buynow', {id})
         .then(response => {
           console.log("products se cart me chalegaya");
       })}

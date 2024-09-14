@@ -16,7 +16,7 @@ function Login() {
 
     const submited = (e) => {
         e.preventDefault();
-        axios.post("https://e-commerce-using-mern-tv4q.vercel.app/login", data,{withCredentials:true})
+        axios.post("https://e-commerce-using-mern-ten.vercel.app/login", data,{withCredentials:true})
             .then(result=> {
                 console.log("Login successful:", result);
                 localStorage.setItem("username",result.data.username)
