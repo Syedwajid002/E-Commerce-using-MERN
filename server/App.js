@@ -21,8 +21,8 @@ const port = 5000;
 
 app.use(cors({
   origin: "https://online-shop-two-gamma.vercel.app",
-  credentials: true,
-  methods:["POST","GET"]
+  methods:["POST","GET"],
+  credentials: true
 }));
 app.use(cookieParser());
 app.use(bodyParser.json());
