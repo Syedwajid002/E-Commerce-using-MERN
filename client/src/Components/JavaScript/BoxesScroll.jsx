@@ -7,7 +7,7 @@ const BoxesScroll = React.forwardRef((props, ref) => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const fetchData = () => {
-    axios.get('http://localhost:5000/getProducts')
+    axios.get('https://e-commerce-using-mern-livid.vercel.app/getProducts')
       .then(response => {
         setData(response.data)
         console.log(response.data)
