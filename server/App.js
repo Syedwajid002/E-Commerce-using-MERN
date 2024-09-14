@@ -19,8 +19,10 @@ const axios = require("axios");
 const app = express();
 const port = 5000;
 
+const corsOrigin = "https://online-shop-two-gamma.vercel.app" || '*';
+
 app.use(cors({
-  origin: "https://online-shop-two-gamma.vercel.app",
+  origin: corsOrigin,
   methods:["POST","GET"],
   credentials: true
 }));
