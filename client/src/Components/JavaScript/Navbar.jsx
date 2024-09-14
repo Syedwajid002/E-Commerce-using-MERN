@@ -56,7 +56,7 @@ const Logout=async()=>{
     <div>
       <nav className="navbar navbar-expand-lg text-black  p-0">
         <div className="container-fluid">
-          <a className="navbar-brand text-black ml-16 mt-2" data-aos="zoom-out" href="/"><strong>Any-Buy</strong></a>
+          <a className="navbar-brand  ml-16 mt-2 text-orange-500 " data-aos="zoom-out" href="/"><strong><span className='text-sky-400 mr-1'>Online</span><span className='text-orange-500'>Shop</span></strong></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
