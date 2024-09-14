@@ -22,8 +22,7 @@ const port = 5000;
 
 app.use(cors({
   origin: "*",
-  methods:["POST","GET"],
-  credentials: true
+  methods:["POST","GET"]
 }));
 app.use(cookieParser());
 app.use(bodyParser.json());
