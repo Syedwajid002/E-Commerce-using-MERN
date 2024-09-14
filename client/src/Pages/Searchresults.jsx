@@ -15,7 +15,7 @@ const Searchresults = () => {
     const fetchResults = async () => {
       try {
         console.log(query)
-        const response = await axios.post('http://localhost:5000/SearchResults', { query });
+        const response = await axios.post('https://e-commerce-using-mern-tv4q.vercel.app/SearchResults', { query });
         // console.log("ya tak sahi hai")
         setResults(response.data.result);
         console.log("Received data");

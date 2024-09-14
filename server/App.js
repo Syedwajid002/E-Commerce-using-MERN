@@ -20,15 +20,16 @@ const app = express();
 const port = 5000;
 
 app.use(cors({
-  origin: "https://e-commerce-using-mern-livid.vercel.app/",
-  credentials: true
+  origin: "https://e-commerce-using-mern-livid.vercel.app",
+  credentials: true,
+  methods:["POST","GET"]
 }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/",(req,res)=>{
-  res.send("hey bro from backend");
+  res.json("hey bro from backend");
 });
 
 app.get('/getProducts', async (req, res) => {

@@ -1,8 +1,7 @@
-require('dotenv').config();
 const mongoose = require('mongoose');
 
 
-const DB_URI = "mongodb+srv://wajid:Wajid@123@e-commerce.n9lds.mongodb.net/?retryWrites=true&w=majority&appName=E-Commerce"
+const DB_URI = "mongodb+srv://wajid:Wajid%40123@e-commerce.n9lds.mongodb.net/test?retryWrites=true&w=majority&appName=E-Commerce"
 mongoose.connect(DB_URI).then(() => {
   console.log('Connected to MongoDB Atlasss');
 }).catch((err) => {
@@ -15,5 +14,5 @@ const userSchema = new mongoose.Schema({
   Email: String, // Corrected to lowercase 'email' for consistency
   Password: String
 });
-
+ 
 module.exports = mongoose.model('userModel', userSchema); // Corrected model name to 'User'

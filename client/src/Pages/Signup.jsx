@@ -16,7 +16,7 @@ function Signup() {
   const submited = e => {
     e.preventDefault();
     console.log("Data submitted:", data); // Log the data being submitted
-    axios.post("http://localhost:5000/createUser", data)
+    axios.post("https://e-commerce-using-mern-tv4q.vercel.app/createUser", data)
       .then(result => {
         alert("created user please login")
         navigate("/login");
