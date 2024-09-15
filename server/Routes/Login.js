@@ -14,6 +14,11 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
+app.options('*', cors({
+  origin: 'https://online-shop-two-gamma.vercel.app',
+  credentials: true,
+}));
+
 const Login = async (req, res) => {
   try {
     const { Email, Password } = req.body;
