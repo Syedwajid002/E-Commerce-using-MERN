@@ -17,7 +17,11 @@ function Login() {
 
     const submited = (e) => {
         e.preventDefault();
-        axios.post(`${BASE}/login`, data,{withCredentials:true})
+        axios.post('https://e-commerce-using-mern-cng7.onrender.com/login', 
+            data, {
+            withCredentials: true, 
+          });
+          
             .then(result=> {
                 console.log("Login successful:", result);
                 localStorage.setItem("username",result.data.username)
