@@ -38,7 +38,7 @@ const Login = async (req, res) => {
     let token = jwt.sign({ id: user._id }, "hfjksdhfkhsdkfhksdfh", { expiresIn: "1h" });
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false, // Set to true if using HTTPS
+      secure: true, // Set to true if using HTTPS
       sameSite: "strict"
     }).json({
       success: true,
