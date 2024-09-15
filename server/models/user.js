@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 
-const DB_URI = "mongodb+srv://wajid:Wajid%40123@e-commerce.n9lds.mongodb.net/test?retryWrites=true&w=majority&appName=E-Commerce"
+const DB_URI = process.env.DB_URI;
 mongoose.connect(DB_URI).then(() => {
   console.log('Connected to MongoDB Atlasss');
 }).catch((err) => {
