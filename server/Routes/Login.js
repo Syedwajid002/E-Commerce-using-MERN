@@ -8,6 +8,7 @@ const cors = require('cors');
 
 app.use(cors({
   origin: "*",
+  credentials: true
 }));
 app.use(express.json());
 app.use(cookieParser())
