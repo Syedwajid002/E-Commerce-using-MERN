@@ -1,11 +1,19 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const userModel = require('./../models/user'); // Adjust the path as necessary
+const userModel = require('./../models/user');
 const cookieParser = require('cookie-parser');
+const cors=require('cors');
 const app = express();
+app.use(cors({
+  origin: 'https://online-shop-two-gamma.vercel.app', 
+  credentials: true,
+}));
+
 app.use(express.json());
 app.use(cookieParser())
+
+
 
 const Login= async (req, res) => {
     try {
@@ -16,6 +24,7 @@ const Login= async (req, res) => {
           success: false,
           message: "Invalid email"
         });
+        console.log("User not found")
       }
   
       const isPasswordCorrect = await bcrypt.compare(Password, user.Password);

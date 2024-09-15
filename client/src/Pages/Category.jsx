@@ -18,7 +18,7 @@ const navigate=useNavigate();
                 setData(response.data.result);
         })
         .catch(err=>{console.log("Error Category me"+err)})
-    },[])
+    },[Category])
 
 
     const productclick=(item)=>{
