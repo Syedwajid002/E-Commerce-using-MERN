@@ -1,9 +1,9 @@
 const express = require('express');
+const cors=require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const userModel = require('./../models/user');
 const cookieParser = require('cookie-parser');
-const cors=require('cors');
 const app = express();
 app.use(cors({
   origin: 'https://online-shop-two-gamma.vercel.app', 
@@ -11,10 +11,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use(cookieParser())
-
-
-
+app.use(cookieParser());
 const Login= async (req, res) => {
     try {
       const { Email, Password } = req.body;
