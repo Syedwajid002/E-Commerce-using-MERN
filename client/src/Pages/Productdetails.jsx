@@ -21,6 +21,7 @@ const Productdetails = () => {
     axios.get(`${BASE}/${id}`)
       .then(response => {
         setdata(response.data.result);
+        console.log(response.data.result)
       })
   }, [id]);
   if (!data) {
