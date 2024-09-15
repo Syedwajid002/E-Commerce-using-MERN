@@ -7,8 +7,7 @@ const app = express();
 const cors = require('cors');
 
 app.use(cors({
-  origin: "https://online-shop-two-gamma.vercel.app",
-  credentials: true
+  origin: "*",
 }));
 app.use(express.json());
 app.use(cookieParser())
