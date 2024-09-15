@@ -20,7 +20,7 @@ function Login() {
         axios.post('https://e-commerce-using-mern-cng7.onrender.com/login', 
             data, {
             withCredentials: true, 
-          });
+          })
           
             .then(result=> {
                 console.log("Login successful:", result);
