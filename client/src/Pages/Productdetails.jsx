@@ -18,7 +18,7 @@ const Productdetails = () => {
   }
   const { id } = useParams();
   useEffect(() => {
-    axios.get(`${BASE}/${id}`)
+    axios.get(`${BASE}/ProductsDetails/${id}`)
       .then(response => {
         setdata(response.data.result);
         console.log(response.data.result)
