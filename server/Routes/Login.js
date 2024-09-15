@@ -18,7 +18,7 @@ const Login = async (req, res) => {
   try {
     const { Email, Password } = req.body;
     const user = await userModel.findOne({ Email });
-    
+    console.log("reached login")
     if (!user) {
       console.log("User not found"); 
       return res.status(401).json({
@@ -26,16 +26,18 @@ const Login = async (req, res) => {
         message: "Invalid email"
       });
     }
-
+    console.log("first")
     const isPasswordCorrect = await bcrypt.compare(Password, user.Password);
     if (!isPasswordCorrect) {
+      console.log("pwd")
       return res.status(401).json({
         success: false,
         message: "Invalid password"
       });
     }
-
+    console.log("pwdpass")
     let token = jwt.sign({ id: user._id }, "hfjksdhfkhsdkfhksdfh", { expiresIn: "1h" });
+    console.log("tpass")
     res.cookie("token", token, {
       httpOnly: true,
       secure: true, // Set to true if using HTTPS
