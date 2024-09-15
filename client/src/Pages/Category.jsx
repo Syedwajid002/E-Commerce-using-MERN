@@ -4,6 +4,7 @@ import axios from 'axios';
 import './../Components/Styles/BoxesScroll.css'
 import { Link } from 'react-router-dom';
 import Navbar from '../Components/JavaScript/Navbar';
+import BASE from '../constants/api';
 const Category = () => {
 
 const {Category}=useParams();
@@ -11,7 +12,7 @@ const [data,setData]=useState();
 const navigate=useNavigate();
 
     useEffect(()=>{
-        axios.post("https://e-commerce-using-mern-ten.vercel.app/SearchResults",{query:Category})
+        axios.post(`${BASE}/SearchResults`,{query:Category})
         .then(response=>{
             console.log(response.data.result);
                 setData(response.data.result);

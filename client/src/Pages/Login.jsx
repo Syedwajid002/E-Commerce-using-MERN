@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './../Components/Styles/Signup.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BASE from '../constants/api';
 
 function Login() {
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ function Login() {
 
     const submited = (e) => {
         e.preventDefault();
-        axios.post("https://e-commerce-using-mern-ten.vercel.app/login", data,{withCredentials:true})
+        axios.post(`${BASE}/login`, data,{withCredentials:true})
             .then(result=> {
                 console.log("Login successful:", result);
                 localStorage.setItem("username",result.data.username)

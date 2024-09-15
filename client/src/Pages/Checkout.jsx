@@ -3,6 +3,7 @@ import Navbar from '../Components/JavaScript/Navbar'
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import BASE from '../constants/api';
 
 
 const Checkout = () => {
@@ -19,7 +20,7 @@ const Checkout = () => {
       const userId = localStorage.getItem('id');
       console.log(userId);
       axios
-        .get(`https://e-commerce-using-mern-ten.vercel.app/getCart/${userId}`)
+        .get(`${BASE}/getCart/${userId}`)
         .then(response => {
           // console.log('Response has come');
           const items = response.data.items;

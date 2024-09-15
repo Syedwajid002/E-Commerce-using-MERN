@@ -4,6 +4,7 @@ import './../Components/Styles/BoxesScroll.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Navbar from '../Components/JavaScript/Navbar';
+import BASE from '../constants/api';
 
 const Searchresults = () => {
   const { query } = useParams();
@@ -15,7 +16,7 @@ const Searchresults = () => {
     const fetchResults = async () => {
       try {
         console.log(query)
-        const response = await axios.post('https://e-commerce-using-mern-ten.vercel.app/SearchResults', { query });
+        const response = await axios.post(`${BASE}/SearchResults`, { query });
         // console.log("ya tak sahi hai")
         setResults(response.data.result);
         console.log("Received data");

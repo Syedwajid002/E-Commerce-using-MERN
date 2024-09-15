@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../Components/JavaScript/Navbar';
+import BASE from '../constants/api';
 
 const Productdetails = () => {
   const navigate=useNavigate();
@@ -17,7 +18,7 @@ const Productdetails = () => {
   }
   const { id } = useParams();
   useEffect(() => {
-    axios.get(`https://e-commerce-using-mern-ten.vercel.app/ProductsDetails/${id}`)
+    axios.get(`${BASE}/${id}`)
       .then(response => {
         setdata(response.data.result);
       })
@@ -36,7 +37,7 @@ const Productdetails = () => {
       const productId = data.id;
       const userId = localStorage.getItem("id");
       console.log(userId)
-     axios.post('https://e-commerce-using-mern-ten.vercel.app/addtocart', { productId, userId })
+     axios.post(`${BASE}/addtocart`, { productId, userId })
       .then(response => {
         console.log("products se cart me chalegaya");
         console.log(response.data)
@@ -53,7 +54,7 @@ const Productdetails = () => {
       }
       else{
         const id=data.id;
-        axios.post('https://e-commerce-using-mern-ten.vercel.app/buynow', {id})
+        axios.post(`${BASE}/buynow`, {id})
         .then(response => {
           console.log("products se cart me chalegaya");
       })}

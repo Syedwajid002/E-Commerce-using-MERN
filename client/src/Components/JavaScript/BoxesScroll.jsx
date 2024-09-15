@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import '../Styles/BoxesScroll.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import BASE from '../../constants/api';
 
 const BoxesScroll = React.forwardRef((props, ref) => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const fetchData = () => {
-    axios.get('https://e-commerce-using-mern-ten.vercel.app/getProducts')
+    axios.get(`${BASE}/getProducts`)
       .then(response => {
         setData(response.data)
         console.log(response.data)
