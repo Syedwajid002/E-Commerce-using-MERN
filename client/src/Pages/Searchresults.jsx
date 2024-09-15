@@ -8,7 +8,6 @@ import BASE from '../constants/api';
 
 const Searchresults = () => {
   const { query } = useParams();
-  // console.log(query)
   const [results, setResults] = useState([]);
   const navigate=useNavigate();
 
