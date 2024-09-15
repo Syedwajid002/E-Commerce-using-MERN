@@ -22,7 +22,7 @@ function Navbar() {
       setName(getname);
     } else {
       setAuth(false);
-      setId("404")
+      setId(404)
     }
   }, []);
   
