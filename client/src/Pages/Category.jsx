@@ -12,9 +12,9 @@ const [data,setData]=useState();
 const navigate=useNavigate();
 
     useEffect(()=>{
+      console.log(Category);
         axios.post(`${BASE}/SearchResults`,{query:Category})
         .then(response=>{
-            console.log(response.data.result);
                 setData(response.data.result);
         })
         .catch(err=>{console.log("Error Category me"+err)})
