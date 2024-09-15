@@ -17,16 +17,15 @@ function Login() {
 
     const submited = (e) => {
         e.preventDefault();
-        axios.post('https://e-commerce-using-mern-cng7.onrender.com/login', 
+        axios.post('https://e-commerce-using-mern-cng7.onrender.com/login',
             data, {
-            withCredentials: true, 
-          })
-          
-            .then(result=> {
+            withCredentials: true,
+        })
+            .then(result => {
                 console.log("Login successful:", result);
-                localStorage.setItem("username",result.data.username)
-                localStorage.setItem("isLoggedIn",true)
-                localStorage.setItem("id",result.data.userId)
+                localStorage.setItem("username", result.data.username)
+                localStorage.setItem("isLoggedIn", true)
+                localStorage.setItem("id", result.data.userId)
                 navigate("/");
             })
             .catch((err) => {
