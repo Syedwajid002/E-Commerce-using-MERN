@@ -11,7 +11,6 @@ const BoxesScroll = React.forwardRef((props, ref) => {
     axios.get(`${BASE}/getProducts`)
       .then(response => {
         setData(response.data)
-        console.log(response.data)
       })
       .catch(error => {
         console.error('Error aaya kab: fetching data:', error);

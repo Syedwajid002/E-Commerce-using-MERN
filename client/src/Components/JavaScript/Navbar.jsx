@@ -3,6 +3,7 @@ import React, {useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import cartImage from "../../Images/shopping-cart.png"
 import axios from 'axios';
+import BASE from '../../constants/api';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -16,11 +17,12 @@ function Navbar() {
     if (getstatus === 'true') {
       setAuth(true);
       const getid=localStorage.getItem("id");
-      setId(getid)
+      setId(getid);
       const getname = localStorage.getItem("username");
       setName(getname);
     } else {
       setAuth(false);
+      setId("404")
     }
   }, []);
   
@@ -36,7 +38,7 @@ function Navbar() {
 
 const Logout=async()=>{
   console.log("from frontend Logout");
-  await axios.post("http://localhost:5000/logout")
+  await axios.post(`${BASE}/logout`)
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("username");
   localStorage.removeItem("id")
