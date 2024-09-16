@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import BASE from '../constants/api';
 function Login() {
     const navigate = useNavigate();
     const [data, setData] = useState({
         Email: "",
         Password: ""
     });
+    
 
     const changed = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
@@ -15,7 +17,7 @@ function Login() {
 
     const submited = (e) => {
         e.preventDefault();
-        axios.post("https://e-commerce-using-mern-cng7.onrender.com/loginnow",
+        axios.post(`${BASE}/log`,
             data, {
             withCredentials: true,
         })
