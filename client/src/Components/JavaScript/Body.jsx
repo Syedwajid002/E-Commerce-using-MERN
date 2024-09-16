@@ -12,7 +12,7 @@ function Body() {
         <div className="body">
         <div className="mainHeadings">
         <div data-aos="zoom-in">
-        <b><h2 className='text-center  text-4xl mt-0'>Buy anything you want</h2></b>
+        <b><h2 className='text-center  text-4xl p-2 mt-0'>Buy anything you want</h2></b>
            </div>
         </div>
         <div className="sideheading">

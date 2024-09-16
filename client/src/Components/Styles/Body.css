@@ -1,10 +1,17 @@
-.fullbody{
-    background: url(../../Images/homebg.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size:cover;
-    color:black;
-    margin: 0;padding: 0;
+.fullbody {
+    background: url(../../Images/homebg.jpg) no-repeat center center fixed;
+    background-size: cover;  /* Ensures image covers the entire background */
+    color: black;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Ensures the element takes the full height of the viewport */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .fullbody {
+        background-attachment: scroll; /* Prevents the background from being fixed on mobile for better performance */
+    }
 }
 
 .body{

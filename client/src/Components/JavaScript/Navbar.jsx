@@ -47,9 +47,9 @@ const Logout=async()=>{
       navigate('/');
 }
   return (
-    <div className='md:flex md:justify-between bg-[#F3F2F4] pt-2'>
+    <div className='md:flex justify-center md:justify-between bg-[#F3F2F4] pt-2'>
         <div className="">
-          <a className="ml-16 mt-2 text-orange-500 " data-aos="zoom-out" href="/"><strong><span className='text-sky-400 mr-1'>Online</span><span className='text-orange-500'>Shop</span></strong></a>
+          <a className="ml-16 mt-2 text-orange-500 " data-aos="zoom-out" href="/"><strong><span className='text-sky-400 mr-1 text-2xl'>Online</span><span className='text-orange-500'>Shop</span></strong></a>
           </div>
           <div className="hidden justify-between md:flex">
             <ul className="flex">
@@ -68,7 +68,7 @@ const Logout=async()=>{
             </ul>
             
           </div>
-        <div className="">
+        <div className="flex justify-center">
           <form className="flex rounded-md " role="search" onSubmit={handlesubmit}>
             <input className="border-1 rounded-xl pl-1 pr-1 mr-2" type="search" placeholder="Search For Items" aria-label="Search" name='searchbar' onChange={handleonchange} />
             <button className="bg-slate-500 text-white rounded-lg p-1.5 " type="submit">Search</button>
@@ -85,7 +85,7 @@ const Logout=async()=>{
           <button className='bg-slate-800 text-white rounded-lg' onClick={Logout}>Logout</button>
         </div>
       ) : (
-        <div className='hidden md:flex '>  <div onClick={()=>{
+        <div className='hidden md:flex'>  <div onClick={()=>{
           navigate(`/Mycart/${id}`)
         }}>
         <img className='w-8 h-8 object-contain hover:border-b-2 hover:border-black p-0.5 mr-2' src={cartImage} alt="" />
