@@ -1,3 +1,3 @@
-const BASE = "https://e-commerce-using-mern-cng7.onrender.com";
+const BASE = "https://e-commerce-using-mern-ten.vercel.app";
 
 export default BASE;
