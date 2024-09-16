@@ -30,7 +30,7 @@ const BoxesScroll = React.forwardRef((props, ref) => {
     <div className="md:grid md:grid-cols-4 w-full p-2.5 justify-center align-middle content-center text-center" ref={ref}>
        {data.map(item => (
            <div data-aos="zoom-in">
-         <div className="md:flex-col justify-center align-middle content-center mb-5 bg-white mr-2.5 w-72 h-72 text-center border-2 border-l-2 border-black rounded-lg" key={item.id} onClick={() => productclick(item)}>
+         <div className="md:flex-row justify-center align-middle content-center mb-3 bg-white w-72 h-72 text-center border-l-2 border-gray-400 rounded-lg hover:scale-110 transition-transform duration-300" key={item.id} onClick={() => productclick(item)}>
           <img src={item.image} alt={item.title} />
           <h4>{item.title}</h4>
         </div>
