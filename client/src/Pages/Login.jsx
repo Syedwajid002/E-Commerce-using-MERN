@@ -35,7 +35,7 @@ function Login() {
     };
 
     return (
-        <div className='flex justify-center content-center'>
+        <div className='flex justify-center align-middle content-center'>
                 <form className="w-72 flex-col align-middle justify-center text-center border-1 border-black rounded-md border-gray-300 p-2m-0">
                     <h2 className='text-3xl border-b-4 '>Login</h2>
                     <h4 className='text-xl'>Welcome Back Please Login To Continue</h4>
