@@ -17,7 +17,7 @@ function Login() {
 
     const submited = (e) => {
         e.preventDefault();
-        axios.post(`${BASE}/login`,
+        axios.post(`https://e-commerce-using-mern-cng7.onrender.com/login`,
             data, {
             withCredentials: true,
         })
