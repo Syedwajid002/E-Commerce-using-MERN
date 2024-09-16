@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import BASE from '../constants/api';
 import { Link } from 'react-router-dom';
 function Login() {
     const navigate = useNavigate();
@@ -16,7 +15,7 @@ function Login() {
 
     const submited = (e) => {
         e.preventDefault();
-        axios.post(`${BASE}/login`,
+        axios.post("https://e-commerce-using-mern-cng7.onrender.com/login",
             data, {
             withCredentials: true,
         })
