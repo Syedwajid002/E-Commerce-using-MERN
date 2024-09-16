@@ -15,7 +15,7 @@ function Login() {
 
     const submited = (e) => {
         e.preventDefault();
-        axios.post("https://e-commerce-using-mern-cng7.onrender.com/login",
+        axios.post("https://e-commerce-using-mern-cng7.onrender.com/loginnow",
             data, {
             withCredentials: true,
         })
@@ -35,7 +35,7 @@ function Login() {
 
     return (
         <div className='flex justify-center align-middle content-center'>
-                <form className="w-72 flex-col align-middle justify-center text-center border-1 border-black rounded-md border-gray-300 p-2m-0">
+                <form className="w-72 flex-col align-middle justify-center text-center border-1 border-b rounded-md border-gray-300 p-2m-0">
                     <h2 className='text-3xl border-b-4 '>Login</h2>
                     <h4 className='text-xl'>Welcome Back Please Login To Continue</h4>
                     <input type="email" placeholder="Email" required onChange={changed} name='Email' value={data.Email} className='border-2 rounded-md p-2 mb-2'/>

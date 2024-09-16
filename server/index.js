@@ -99,7 +99,7 @@ app.post("/createUser",Signup);
 
 
 
-app.post("/login", Login)
+app.post("/loginnow", Login)
 
 
 app.post('/logout', Logout);
