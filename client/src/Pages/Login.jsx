@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import './../Components/Styles/Signup.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import BASE from '../constants/api';
-
+import { Link } from 'react-router-dom';
 function Login() {
     const navigate = useNavigate();
     const [data, setData] = useState({
@@ -17,7 +16,7 @@ function Login() {
 
     const submited = (e) => {
         e.preventDefault();
-        axios.post('https://e-commerce-using-mern-cng7.onrender.com/login',
+        axios.post(`${BASE}/login`,
             data, {
             withCredentials: true,
         })
@@ -36,17 +35,18 @@ function Login() {
     };
 
     return (
-        <div>
-            <div className="signup-container">
-                <form className="signup-form" onSubmit={submited}>
-                    <h2>Login</h2>
-                    <h4>Welcome Back!</h4>
-                    <input type="email" placeholder="Email" required onChange={changed} name='Email' value={data.Email} />
-                    <input type="password" placeholder="Password" required onChange={changed} name='Password' value={data.Password} />
-                    <button type="submit">Login</button>
+        <div className='flex justify-center content-center'>
+                <form className="w-72 flex-col align-middle justify-center text-center border-1 border-black rounded-md border-gray-300 p-2m-0">
+                    <h2 className='text-3xl border-b-4 '>Login</h2>
+                    <h4 className='text-xl'>Welcome Back Please Login To Continue</h4>
+                    <input type="email" placeholder="Email" required onChange={changed} name='Email' value={data.Email} className='border-2 rounded-md p-2 mb-2'/>
+                    <br />
+                    <input type="password" placeholder="Password" required onChange={changed} name='Password' value={data.Password} className='border-2 rounded-md p-2'/>
+                    <p className='text-xs mt-2'>Don't have an account ? <a href="/signup">signup</a></p>
+                    <Link to='/Signup'> <button className='bg-white text-black p-1.5 rounded-lg w-28 border-2 m-2'>Sign Up</button></Link>
+                    <button type="submit" className='bg-blue-600 text-black p-1.5 rounded-lg w-28 border-2 m-2' onClick={submited}>Login</button>
                 </form>
-            </div>
-        </div>
+                </div>
     );
 }
 
