@@ -99,7 +99,7 @@ app.post("/createUser",Signup);
 
 
 
-app.post("/log", (req, res, next) => { 
+app.post("/login", (req, res, next) => { 
   console.log("at login");
   Login(req, res, next);  
 });
