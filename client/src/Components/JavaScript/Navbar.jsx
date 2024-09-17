@@ -49,7 +49,7 @@ const Logout=async()=>{
   return (
     <div className='md:flex justify-center md:justify-between bg-[#F3F2F4] pt-2'>
         <div className="">
-          <a className="ml-16 mt-2 text-orange-500 " data-aos="zoom-out" href="/"><strong><span className='text-sky-400 mr-1 text-2xl'>Online</span><span className='text-orange-500'>Shop</span></strong></a>
+          <a className="ml-16 mt-2 text-orange-500 " data-aos="zoom-out" href="/"><strong><span className='text-sky-400 mr-1 text-2xl '>Online</span><span className='text-orange-500'>Shop</span></strong></a>
           </div>
           <div className="hidden justify-between md:flex">
             <ul className="flex">
@@ -71,7 +71,7 @@ const Logout=async()=>{
         <div className="flex justify-center">
           <form className="flex rounded-md " role="search" onSubmit={handlesubmit}>
             <input className="border-1 rounded-xl pl-1 pr-1 mr-2" type="search" placeholder="Search For Items" aria-label="Search" name='searchbar' onChange={handleonchange} />
-            <button className="bg-slate-500 text-white rounded-lg p-1.5 " type="submit">Search</button>
+            <button className="bg-black hover:bg-green-600 text-white rounded-lg p-1.5 " type="submit">Search</button>
           </form> 
           </div>
       {auth ? (
