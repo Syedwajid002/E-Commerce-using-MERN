@@ -3,21 +3,21 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const jwt = require("jsonwebtoken");
-const userModel = require('../models/user');
-const Products = require('../models/Products');
-const MyCart = require('../models/Cart');
-const Login = require('../Routes/Login');
-const ProductDetails = require('../Routes/ProductDetails');
-const Signup = require('../Routes/Signup');
-const SearchedQuery = require('../Routes/SearchResults');
-const Logout = require('../Routes/Logout');
+const userModel = require('./models/user');
+const Products = require('./models/Products');
+const MyCart = require('./models/Cart');
+const Login = require('./Routes/Login');
+const ProductDetails = require('./Routes/ProductDetails');
+const Signup = require('./Routes/Signup');
+const SearchedQuery = require('./Routes/SearchResults');
+const Logout = require('./Routes/Logout');
 const base64 = require('base-64');
 const sha256 = require("sha256");
 const crypto = require('crypto');
 const axios = require("axios");
 
 const app = express();
-const port =  5000;
+const port = 5000;
 
 
 app.use(cors({

@@ -8,8 +8,8 @@ const BoxesScroll = React.forwardRef((props, ref) => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const fetchData = () => {
-    axios.get(`${BASE}/api/getProducts`)
-    .then(response => {
+    axios.get(`${BASE}/getProducts`)
+      .then(response => {
         setData(response.data)
       })
       .catch(error => {

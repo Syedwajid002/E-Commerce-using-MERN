@@ -17,7 +17,7 @@ function Signup() {
   const submited = e => {
     e.preventDefault();
     console.log("Data submitted:", data); // Log the data being submitted
-    axios.post(`${BASE}/api/createUser`, data)
+    axios.post(`${BASE}/createUser`, data)
       .then(result => {
         alert("created user please login")
         navigate("/login");

@@ -13,7 +13,7 @@ const navigate=useNavigate();
 
     useEffect(()=>{
       console.log(Category);
-        axios.post(`${BASE}/api/SearchResults`,{query:Category})
+        axios.post(`${BASE}/SearchResults`,{query:Category})
         .then(response=>{
                 setData(response.data.result);
         })
