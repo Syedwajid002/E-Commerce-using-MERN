@@ -26,8 +26,8 @@ function Body() {
         </div>
         {/* <Link to='/login'><button className='bg-blue-600 text-white rounded-md pr-3 pl-3 p-2 font-semibold m-2.5 md:hidden'>Login</button></Link> */}
         </div>
-            <div className='md:hidden flex w-full justify-between list-none position-absolute bg-black  border-0 text-white p-2 mt-2'>
-                <Link to='/Products/men'><li>Mens</li></Link>
+            <div className='md:hidden flex w-full justify-between list-none position-absolute bg-black  border-0 text-white p-2 mt-6'>
+                <Link to='/Products/men' className=''><li>Mens</li></Link>
                 <Link to='/Products/women'><li>Womens</li></Link>
                 <Link to='/Products/jewelery'><li>Jewellary</li></Link>
                 <Link to='/Products/electronics'><li>Electronics</li></Link>

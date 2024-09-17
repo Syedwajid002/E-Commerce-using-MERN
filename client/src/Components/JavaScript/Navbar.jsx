@@ -49,18 +49,18 @@ const Logout=async()=>{
   return (
     <div className='md:flex justify-center md:justify-between bg-[#F3F2F4] pt-2'>
         <div className="flex justify-between">
-          <a className="ml-2 mt-2 text-orange-500 " data-aos="zoom-out" href="/"><strong><span className='text-sky-400 mr-1 text-2xl text-center '>Online</span><span className='text-orange-500'>Shop</span></strong></a>
+          <a className="ml-2 mt-2 md:mt-0 text-orange-500 " data-aos="zoom-out" href="/"><strong><span className='text-sky-400 mr-1 text-2xl text-center'>Online</span><span className='text-orange-500'>Shop</span></strong></a>
           {auth ? (
             <div className='flex gap-1 md:hidden'><p className='p-1.5 mb-2 mt-2 mr-2'> {name}!</p>
                     <button className='bg-slate-800 text-white rounded-lg' onClick={Logout}>Logout</button>
                     </div>
                   ):(
-            <Link to='/login'><button className='bg-blue-600 text-white p-1.5 mb-2 mt-2 mr-2 rounded-lg'>Login</button></Link>
+            <Link to='/login'><button className='bg-blue-600 text-white p-1.5 mb-2 mt-2 mr-2 rounded-lg md:hidden'>Login</button></Link>
           )}
           
           </div>
           <div className="hidden justify-between md:flex">
-            <ul className="flex">
+            <ul className="flex items-center">
               <li className="pr-2 pl-2 text-center hover:border-b-2 hover:border-black">
                 <Link to='/Products/men' >Mens</Link>
               </li>
