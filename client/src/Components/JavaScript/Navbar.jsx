@@ -48,8 +48,12 @@ const Logout=async()=>{
 }
   return (
     <div className='md:flex justify-center md:justify-between bg-[#F3F2F4] pt-2'>
-        <div className="">
-          <a className="ml-16 mt-2 text-orange-500 " data-aos="zoom-out" href="/"><strong><span className='text-sky-400 mr-1 text-2xl '>Online</span><span className='text-orange-500'>Shop</span></strong></a>
+        <div className="flex justify-between">
+          <a className="ml-2 mt-2 text-orange-500 " data-aos="zoom-out" href="/"><strong><span className='text-sky-400 mr-1 text-2xl text-center '>Online</span><span className='text-orange-500'>Shop</span></strong></a>
+          {auth ? (<p className='p-1.5 mb-2 mt-2 mr-2'> {name}!</p>):(
+            <Link to='/login'><button className='bg-blue-600 text-white p-1.5 mb-2 mt-2 mr-2 rounded-lg'>Login</button></Link>
+          )}
+          
           </div>
           <div className="hidden justify-between md:flex">
             <ul className="flex">

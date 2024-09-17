@@ -24,9 +24,9 @@ function Body() {
             <h3 className='font-bold text-3xl '>Great Deals upto 50% OFF</h3>
         <button onClick={scrollToComponent} className='shop bg-slate-300 hover:bg-gray-200 rounded-md p-2'>Shop Now</button>
         </div>
-        <Link to='/login'><button className='bg-blue-600 text-white rounded-md pr-3 pl-3 p-2 font-semibold m-2.5 md:hidden'>Login</button></Link>
+        {/* <Link to='/login'><button className='bg-blue-600 text-white rounded-md pr-3 pl-3 p-2 font-semibold m-2.5 md:hidden'>Login</button></Link> */}
         </div>
-            <div className='md:hidden flex w-full justify-between list-none position-absolute bg-black  border-0 text-white p-2'>
+            <div className='md:hidden flex w-full justify-between list-none position-absolute bg-black  border-0 text-white p-2 mt-2'>
                 <Link to='/Products/men'><li>Mens</li></Link>
                 <Link to='/Products/women'><li>Womens</li></Link>
                 <Link to='/Products/jewelery'><li>Jewellary</li></Link>
