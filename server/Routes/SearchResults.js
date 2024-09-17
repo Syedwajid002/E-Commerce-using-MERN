@@ -10,7 +10,7 @@ const SearchedQuery= async (req, res) => {
       return res.status(400).json({ error: 'Query parameter is required' });
     }
     const results = await Products.find()
-    const searcheddata = results.filter(item => item.description.toLowerCase().includes(query))
+    const searcheddata = results.filter(item => item.category.toLowerCase().includes(query))
     res.json({ result: searcheddata });
   };
   module.exports=SearchedQuery;
