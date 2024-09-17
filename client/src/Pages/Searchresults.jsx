@@ -15,7 +15,7 @@ const Searchresults = () => {
     const fetchResults = async () => {
       try {
         console.log(query)
-        const response = await axios.post(`${BASE}/SearchResults`, { query });
+        const response = await axios.post(`${BASE}/api/SearchResults`, { query });
         // console.log("ya tak sahi hai")
         setResults(response.data.result);
         console.log("Received data");

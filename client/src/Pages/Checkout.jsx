@@ -20,7 +20,7 @@ const Checkout = () => {
       const userId = localStorage.getItem('id');
       console.log(userId);
       axios
-        .get(`${BASE}/getCart/${userId}`)
+        .get(`${BASE}/api/getCart/${userId}`)
         .then(response => {
           // console.log('Response has come');
           const items = response.data.items;

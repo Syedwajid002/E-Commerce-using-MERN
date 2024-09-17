@@ -17,7 +17,7 @@ function Login() {
 
     const submited = (e) => {
         e.preventDefault();
-        axios.post(`${BASE}/login`,
+        axios.post(`${BASE}/api/login`,
             data, {
             withCredentials: true,
         })
