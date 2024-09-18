@@ -33,7 +33,7 @@ const navigate=useNavigate();
           <div data-aos="fade-out"
           data-aos-easing="ease-out-cubic"
           data-aos-duration="500">
-          <div className="md:flex-col justify-center content-center mb-5 bg-white mr-2.5 w-72 h-72 text-center border-2 border-l-2 border-black rounded-lg" key={item.id} onClick={()=>{productclick(item)}}>
+          <div className="md:flex-col justify-center content-center mb-5 bg-white mr-2.5 w-72 h-72 text-center border-2 border-l-2 border-black rounded-lg  hover:scale-110 transition-transform duration-300" key={item.id} onClick={()=>{productclick(item)}}>
             <img src={item.image} alt={item.title} />
             <h4>{item.title}</h4>
             <p>{item.description.length>20 ? item.description.substring(4,50) + "...":item.description}</p>
