@@ -1,147 +1,136 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaGoogle,
+  FaInstagram,
+  FaLinkedinIn,
+  FaGithub,
+  FaGem,
+  FaHome,
+  FaEnvelope,
+  FaPhone,
+  FaPrint,
+} from "react-icons/fa";
 
 function Footer() {
   return (
-    <div>
-      <footer className="text-center text-lg-start bg-body-tertiary text-muted">
-        <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-          <div className="me-5 d-none d-lg-block">
-            <span>About us:</span>
-          </div>
-          <div>
-            <a href="" className="me-4 text-reset">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="" className="me-4 text-reset">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="" className="me-4 text-reset">
-              <i className="fab fa-google"></i>
-            </a>
-            <a href="" className="me-4 text-reset">
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a href="" className="me-4 text-reset">
-              <i className="fab fa-linkedin"></i>
-            </a>
-            <a href="" className="me-4 text-reset">
-              <i className="fab fa-github"></i>
-            </a>
-          </div>
-        </section>
-
-        <section className="">
-          <div className="container text-center text-md-start mt-5">
-            <div className="row mt-3">
-              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <h6 className="text-uppercase fw-bold mb-4">
-                  <i className="fas fa-gem me-3"></i>
-                  <b>Online Shop</b>
-                </h6>
-                <p>We are a trusted and verified sellers</p>
-                <p>With 100% Guarenteed Products</p>
-              </div>
-
-              <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                <h6 className="text-uppercase fw-bold mb-4">Online Shopping</h6>
-                <p>
-                  <Link
-                    to="/men"
-                    style={{
-                      textDecoration: "none",
-                      padding: "10px",
-                      color: "black",
-                    }}
-                  >
-                    Men
-                  </Link>
-                </p>
-                <p>
-                  <Link
-                    to="/women"
-                    style={{
-                      textDecoration: "none",
-                      padding: "10px",
-                      color: "black",
-                    }}
-                  >
-                    Women
-                  </Link>
-                </p>
-                <p>
-                  <Link
-                    to="/accesories"
-                    style={{
-                      textDecoration: "none",
-                      padding: "10px",
-                      color: "black",
-                    }}
-                  >
-                    Accesories
-                  </Link>
-                </p>
-                <p>
-                  <Link
-                    to="/beauty"
-                    style={{
-                      textDecoration: "none",
-                      padding: "10px",
-                      color: "black",
-                    }}
-                  >
-                    Beauty
-                  </Link>
-                </p>
-                <p>
-                  <Link
-                    to="/electronics"
-                    style={{
-                      textDecoration: "none",
-                      padding: "10px",
-                      color: "black",
-                    }}
-                  >
-                    Electonics
-                  </Link>
-                </p>
-              </div>
-
-              <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <h6 className="text-uppercase fw-bold mb-4">
-                  Registered Office Address :
-                </h6>
-                <p>
-                  Buildings Alyssa, Begonia and Clover situated in Embassy Tech
-                  Village, Outer Ring Road, Devarabeesanahalli Village, Varthur
-                  Hobli, Bengaluru – 560103, India
-                </p>
-              </div>
-              <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
-                <p>
-                  <i className="fas fa-home me-3"></i> India,Hyderabad
-                </p>
-                <p>
-                  <i className="fas fa-envelope me-3"></i>
-                  E-Store@gmail.com
-                </p>
-                <p>
-                  <i className="fas fa-phone me-3"></i> + 91 84673482643
-                </p>
-                <p>
-                  <i className="fas fa-print me-3"></i> + 91 78745347593
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div className="text-center p-4" style={{ backgroundColor: "grey" }}>
-          © 2021 Copyright: <b> E-store.com</b>
-          <p>Made with 💗 by Wajid</p>
+    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-gray-300 pt-10 border-t border-slate-700">
+      {/* Top Social Bar */}
+      <section className="flex flex-col lg:flex-row justify-between items-center px-6 md:px-20 py-6 border-b border-slate-700">
+        <div className="mb-4 lg:mb-0 text-center lg:text-left font-semibold text-lg">
+          Connect with us:
         </div>
-      </footer>
-    </div>
+        <div className="flex gap-5 text-xl">
+          {[
+            FaFacebookF,
+            FaTwitter,
+            FaGoogle,
+            FaInstagram,
+            FaLinkedinIn,
+            FaGithub,
+          ].map((Icon, index) => (
+            <a
+              key={index}
+              href="#"
+              aria-label="Social Link"
+              className="hover:text-yellow-400 transition duration-200"
+            >
+              <Icon />
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Main Footer Content */}
+      <section className="container mx-auto px-6 md:px-20 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* About */}
+          <div>
+            <h6 className="uppercase font-bold mb-4 flex items-center gap-2 text-yellow-400">
+              <FaGem className="text-lg" />
+              Online Shop
+            </h6>
+            <p className="mb-2">Trusted and verified sellers.</p>
+            <p>100% Guaranteed Products.</p>
+          </div>
+
+          {/* Links */}
+          <div>
+            <h6 className="uppercase font-bold mb-4 text-yellow-400">
+              Shop Categories
+            </h6>
+            <ul className="space-y-2">
+              {[
+                { label: "Men", path: "/Products/men" },
+                { label: "Women", path: "/Products/women" },
+                { label: "Accessories", path: "/Products/accessories" },
+                { label: "Beauty", path: "/Products/beauty" },
+                { label: "Electronics", path: "/Products/electronics" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    to={item.path}
+                    className="hover:text-yellow-400 transition duration-150"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Address */}
+          <div>
+            <h6 className="uppercase font-bold mb-4 text-yellow-400">
+              Registered Office
+            </h6>
+            <address className="not-italic text-sm leading-relaxed">
+              X Towers, 1st Floor, 1st Cross
+              <br />
+              Kashibugga,
+              <br />
+              Warangal
+              <br />
+              Telangana,India
+            </address>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h6 className="uppercase font-bold mb-4 text-yellow-400">
+              Contact
+            </h6>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-center gap-2">
+                <FaHome className="text-yellow-400" />
+                Warangal, India
+              </li>
+              <li className="flex items-center gap-2">
+                <FaEnvelope className="text-yellow-400" />
+                <a href="mailto:E-Store@gmail.com" className="hover:underline">
+                  E-Store@gmail.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <FaPhone className="text-yellow-400" />
+                +91 7330786910
+              </li>
+              <li className="flex items-center gap-2">
+                <FaPrint className="text-yellow-400" />
+                +91 9908893623
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom Bar */}
+      <div className="bg-slate-800 text-center text-gray-500 py-4 text-sm select-none">
+        © 2025 <b>E-store.com</b> | Made with 💗 by Wajid
+      </div>
+    </footer>
   );
 }
 

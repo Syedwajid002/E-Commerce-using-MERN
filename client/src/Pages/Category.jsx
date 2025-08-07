@@ -1,76 +1,98 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import "./../Components/Styles/BoxesScroll.css";
 import Navbar from "../Components/JavaScript/Navbar";
 import BASE from "../constants/api";
+
 const Category = () => {
-  const { Category } = useParams();
-  const [data, setData] = useState();
-  const [isLoading, setisLoading] = useState(true);
+  const { Category: categoryParam } = useParams();
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(Category);
+    setIsLoading(true);
+    setError("");
     axios
-      .post(`${BASE}/SearchResults`, { query: Category })
+      .post(`${BASE}/SearchResults`, { query: categoryParam })
       .then((response) => {
-        setisLoading(false);
-        setData(response.data.result);
+        setData(response.data.result || []);
+        setIsLoading(false);
       })
       .catch((err) => {
-        console.log("Error Category me" + err);
+        setError("Failed to load products. Please try again.");
+        setIsLoading(false);
       });
-  }, [Category]);
+  }, [categoryParam]);
 
-  const productclick = (item) => {
+  const handleProductClick = (item) => {
     navigate(`/productdetails/${item.id}`);
   };
 
   return (
     <>
       <Navbar />
-      <h2 className="flex items-center place-content-center text-2xl font-bold">
-        <u>Searched Products</u>
-      </h2>
-      {isLoading ? (
-        <div className="flex flex-col items-center justify-center h-40 space-y-2 animate-pulse ">
-          <div className="w-10 h-10 border-4 border-dashed rounded-full border-gray-400 animate-spin"></div>
-          <p className="text-sm text-black">
-            Loading {Category} Products please wait...
-          </p>
-        </div>
-      ) : (
-        <div className="md:grid md:grid-cols-4 w-full p-2.5 justify-center text-cente">
-          {data &&
-            data.map((item) => (
-              <div
-                data-aos="fade-out"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="500"
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <h2 className="text-center text-3xl font-extrabold text-gray-900 mb-8">
+          <span className="border-b-4 border-indigo-600 pb-1">
+            {categoryParam} Products
+          </span>
+        </h2>
+
+        {isLoading ? (
+          <div className="flex flex-col items-center justify-center h-52 gap-4 animate-pulse">
+            <div className="w-12 h-12 border-4 border-dashed rounded-full border-gray-400 animate-spin" />
+            <p className="text-base text-gray-700">
+              Loading <strong>{categoryParam}</strong> products...
+            </p>
+          </div>
+        ) : error ? (
+          <div className="text-center text-red-600 py-10">{error}</div>
+        ) : data.length === 0 ? (
+          <div className="text-center text-gray-600 py-10">
+            No products found for <strong>{categoryParam}</strong>.
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {data.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleProductClick(item)}
+                className="relative bg-white shadow hover:shadow-lg transition duration-300 rounded-xl overflow-hidden flex flex-col cursor-pointer group focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                aria-label={`View details for ${item.title}`}
+                data-aos="zoom-in"
               >
-                <div
-                  className="md:flex-col justify-center content-center mb-5 bg-white mr-2.5 w-72 h-72 text-center border-2 border-l-2 border-black rounded-lg  hover:scale-110 transition-transform duration-300"
-                  key={item.id}
-                  onClick={() => {
-                    productclick(item);
-                  }}
-                >
-                  <img src={item.image} alt={item.title} />
-                  <h4>{item.title}</h4>
-                  <p>
-                    {item.description.length > 20
-                      ? item.description.substring(4, 50) + "..."
-                      : item.description}
+                <div className="w-full aspect-square bg-gray-100 flex justify-center items-center overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="object-contain h-36 w-36 transition-transform duration-300 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="px-4 py-3 flex-1 flex flex-col items-start w-full">
+                  <h4 className="text-md font-semibold text-gray-900 truncate w-full mb-1">
+                    {item.title}
+                  </h4>
+                  <p className="text-gray-500 text-sm mb-2 line-clamp-2">
+                    {item.description?.substring(0, 60) || ""}
+                    {item.description && item.description.length > 60
+                      ? "..."
+                      : ""}
                   </p>
-                  <p>
-                    <strong>Price:</strong> ${item.price}
+                  <p className="mt-auto text-base">
+                    <span className="font-semibold text-indigo-600">
+                      ${item.price?.toFixed(2)}
+                    </span>
                   </p>
                 </div>
-              </div>
+              </button>
             ))}
-        </div>
-      )}
+          </div>
+        )}
+      </main>
     </>
   );
 };

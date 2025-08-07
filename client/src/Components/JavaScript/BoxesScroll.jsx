@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "../Styles/BoxesScroll.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import BASE from "../../constants/api";
@@ -7,8 +6,10 @@ import BASE from "../../constants/api";
 const BoxesScroll = React.forwardRef((props, ref) => {
   const [data, setData] = useState([]);
   const [isLoading, setisLoading] = useState(true);
+  const [showAltText, setShowAltText] = useState(false);
   const navigate = useNavigate();
-  const fetchData = () => {
+
+  useEffect(() => {
     axios
       .get(`${BASE}/getProducts`)
       .then((response) => {
@@ -16,44 +17,68 @@ const BoxesScroll = React.forwardRef((props, ref) => {
         setData(response.data);
       })
       .catch((error) => {
-        console.error("Error aaya kab: fetching data:", error);
-        setisLoading(true);
+        console.error("Error fetching data:", error);
+        setisLoading(false);
       });
-  };
-  useEffect(() => {
-    fetchData();
   }, []);
 
-  const productclick = (item) => {
+  useEffect(() => {
+    if (isLoading) {
+      const interval = setInterval(() => {
+        setShowAltText((prev) => !prev);
+      }, 2000);
+
+      return () => clearInterval(interval); // Cleanup on unmount or when isLoading becomes false
+    }
+  }, [isLoading]);
+
+  const handleProductClick = (item) => {
     navigate(`/productdetails/${item.id}`);
   };
+
   return (
     <>
       {isLoading ? (
-        <div className="flex flex-col items-center justify-center h-40 space-y-2 animate-pulse ">
-          <div className="w-10 h-10 border-4 border-dashed rounded-full border-gray-400 animate-spin"></div>
-          <p className="text-sm text-black">Loading products, please wait...</p>
+        <div className="flex flex-col items-center justify-center h-40 gap-3 animate-pulse">
+          <div className="w-12 h-12 border-4 border-dashed rounded-full border-gray-400 animate-spin" />
+          <p className="text-base text-white">
+            Server is Slow Loading products, please wait...(30 seconds)
+          </p>
         </div>
       ) : (
         <div
-          className="md:grid md:grid-cols-4 w-full p-2.5 justify-center align-middle content-center text-center"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 w-full p-4"
           ref={ref}
         >
           {data.map((item) => (
-            <div data-aos="zoom-in">
-              <div
-                className="md:flex-row justify-center align-middle content-center mb-3 bg-white w-72 h-72 text-center border-l-2 border-gray-400 rounded-lg hover:scale-110 transition-transform duration-300"
-                key={item.id}
-                onClick={() => productclick(item)}
-              >
-                <img src={item.image} alt={item.title} />
-                <h4>{item.title}</h4>
+            <button
+              key={item.id}
+              type="button"
+              className="bg-white shadow-md hover:shadow-xl transition-all duration-300 rounded-xl overflow-hidden flex flex-col items-center cursor-pointer group focus:ring-2 focus:ring-indigo-500"
+              onClick={() => handleProductClick(item)}
+              aria-label={`View details for ${item.title}`}
+              data-aos="zoom-in"
+            >
+              <div className="w-full aspect-square bg-gray-100 flex items-center justify-center overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title || "Product Image"}
+                  className="object-contain h-36 w-36 transition-transform duration-300 group-hover:scale-110"
+                  loading="lazy"
+                />
               </div>
-            </div>
+              <div className="px-4 py-3 flex flex-col items-center w-full">
+                <h4 className="text-lg font-semibold text-gray-900 truncate w-full">
+                  {item.title}
+                </h4>
+                {/* Add more product info if you like, e.g., price, rating */}
+              </div>
+            </button>
           ))}
         </div>
       )}
     </>
   );
 });
+
 export default BoxesScroll;

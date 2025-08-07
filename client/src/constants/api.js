@@ -3,4 +3,4 @@ const BASE = "https://e-commerce-using-mern-cng7.onrender.com"
 export default BASE;
 
 
-// always chnage the base Url for localhost
+// always chnage the base Url for localhost in dev
