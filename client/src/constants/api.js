@@ -1,5 +1,5 @@
-const BASE = "https://e-commerce-using-mern-cng7.onrender.com"
-// const BASE = "http://localhost:5000";
+// const BASE = "https://e-commerce-using-mern-cng7.onrender.com"
+const BASE = "http://localhost:5000";
 export default BASE;
 
 

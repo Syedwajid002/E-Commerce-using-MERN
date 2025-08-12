@@ -71,6 +71,7 @@ const Category = () => {
                     className="object-contain h-36 w-36 transition-transform duration-300 group-hover:scale-110"
                     loading="lazy"
                   />
+                  {console.log(item.image)}
                 </div>
                 <div className="px-4 py-3 flex-1 flex flex-col items-start w-full">
                   <h4 className="text-md font-semibold text-gray-900 truncate w-full mb-1">
