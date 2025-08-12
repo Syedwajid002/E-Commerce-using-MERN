@@ -1,5 +1,4 @@
 const express = require('express');
-const cors=require("cors");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const userModel = require('./../models/user');
@@ -15,6 +14,7 @@ app.use(cookieParser());
 
 const Login = async (req, res) => {
   try {
+    console.log("login called")
     const { Email, Password } = req.body;
     const user = await userModel.findOne({ Email });
     console.log("reached login")
